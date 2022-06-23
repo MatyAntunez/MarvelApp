@@ -14,6 +14,8 @@ export default function Detail({ route }) {
   const [data, setData] = useState([]);
   const { ts, apikey, hash, baseURL } = apiParams;
 
+
+
   useEffect(() => {
     axios.get(`${baseURL}/v1/public/characters/${route.params.id}`, {
       params: {
@@ -25,9 +27,11 @@ export default function Detail({ route }) {
       .then(response => {console.log('ACA ME ROMPO'+ JSON.stringify(response.data.data.results));
       setData(response.data.data.results)})
       .catch(error => {console.error(error.message);
-      console.log(`ACA ME ROMPO LOS PUTOS DICEN ${baseURL}/v1/public/characters/${route.params.id}` );})
+      console.log(`ACA ME ROMPO LOS DICEN ${baseURL}/v1/public/characters/${route.params.id}` );})
       .finally(() => setLoading(false));
   }, []);
+
+  
  
 
   return (
@@ -59,13 +63,23 @@ export default function Detail({ route }) {
       </Tab.Screen>
       <Tab.Screen 
         name="Comics" 
-        component={Comics} 
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="book" color={color} size={size} />
           )
         }}
-      />
+      >
+        {() => 
+          (isLoading
+            ? <ActivityIndicator size="large" color="#00ff00" /> 
+            : <Comics
+                listComics={data} 
+              />
+          )
+        }
+      </Tab.Screen>
+
+
     </Tab.Navigator>
   );
 }

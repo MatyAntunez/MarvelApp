@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useEffect}from "react";
 import { StyleSheet, Text, View, Image, ScrollView, Button, TouchableOpacity  } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 
 
 export default function CharacterCard({image, name, id}) {
     const navigation = useNavigation();
-    
+
+    // useEffect(() => {
+    //   console.log(image)
+    //   }, []);
+
     return(
         <TouchableOpacity  
             style={styles.container} 
@@ -13,7 +17,10 @@ export default function CharacterCard({image, name, id}) {
             >
             <Image 
                 style={styles.image} 
-                source={image} 
+                // source= {image} 
+                source={{
+                    uri: (image),
+                  }}
             />
             <Text style={styles.name}>{name}</Text>
         </TouchableOpacity >
@@ -28,7 +35,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     image: {
-        width: 20,
-        height: 30,
+        width: 50,
+        height: 50,
     }
   });

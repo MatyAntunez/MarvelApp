@@ -33,6 +33,7 @@ export default function Home() {
             keyExtractor={({ id }) => id.toString()}
             renderItem={({ item }) => (
               <CharacterCard 
+              style={styles.image}
                 id={item.id}
                 image={`${item?.thumbnail?.path}.${item?.thumbnail.extension}`} 
                 name={item.name} />
@@ -43,4 +44,19 @@ export default function Home() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+      width: 20,
+      height: 30,
+  }
+});
+
+
 
