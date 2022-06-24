@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Button, Dimensions } from 'react-native';
 
 export default function Information({ image, name, description }) {
     return (
@@ -8,21 +8,43 @@ export default function Information({ image, name, description }) {
           style={styles.image}
           source={{uri: image}}
         />
-        <Text >{name}</Text>
+        <Text style={styles.title} >{name}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
     )
   }
 
+
+  const dimensions = Dimensions.get('window');
+  const imageHeight = Math.round(dimensions.width * 9 / 16);
+  const imageWidth = dimensions.width;
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      
     },
     image: {
-        width: 100,
-        height: 100,
-    }
+      width: imageWidth,
+      height: imageHeight,
+      marginRight: 10,
+      borderWidth: 2,
+    },
+    title: {
+      alignSelf: 'center',
+      margin: 10,
+      fontWeight: 'bold',
+      fontSize: 20
+    },
+    description: {
+      marginLeft: 10,
+      marginRight: 10,
+      padding: 10,
+      borderWidth: 2,
+      borderColor: 'darkred',
+      borderRadius: 10,
+      backgroundColor: 'rgb(223, 184, 184)'
+    },
+
   });
+  

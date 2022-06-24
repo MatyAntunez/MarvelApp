@@ -28,12 +28,14 @@ export default function Comic({ name, image }) {
       borderRadius: 10,
       alignItems: 'center',
       justifyContent: 'center',
-      margin: 20
+      margin: 20,
+      marginTop: 45,
+      marginBottom: 45
     },
     image: {
-      marginTop: 20,
+      marginTop: 30,
       width: 230,
-      height: 354
+      height: 340
     },
     font: {
       padding: 10,
