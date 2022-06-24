@@ -24,10 +24,11 @@ export default function Detail({ route }) {
         hash
       }
     })
-      .then(response => {console.log('ACA ME ROMPO'+ JSON.stringify(response.data.data.results));
-      setData(response.data.data.results)})
+      .then(response => /*{console.log('ACA ME ROMPO'+ JSON.stringify(response.data.data.results));*/
+      setData(response.data.data.results)/*}*/)
       .catch(error => {console.error(error.message);
-      console.log(`ACA ME ROMPO LOS DICEN ${baseURL}/v1/public/characters/${route.params.id}` );})
+      //console.log(`ACA ME ROMPO LOS DICEN ${baseURL}/v1/public/characters/${route.params.id}` )
+      ;})
       .finally(() => setLoading(false));
   }, []);
 
