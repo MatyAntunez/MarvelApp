@@ -3,30 +3,45 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 export default function Comic({ name, image }) {
     return (
-      <View    style= {styles.container}>
+      <View style= {styles.father}>
+        <View style= {styles.container}>
               <Image
                    style= {styles.image}
-                  º source={{uri: image}}
+                   source={{uri: image}}
               />
-              <Text style={styles.titulo}>{name}</Text>
+              <Text style={styles.font}>{name}</Text>
+        </View>
       </View>
     )
   }
 
   const styles = StyleSheet.create({
-    image: {
-      width: 100,
-      height: 100,
-      justifyContent: 'space-between',
-      marginLeft: 30 
-    },
-    titulo:{
-      justifyContent: 'center'
+    father: {
+      alignItems: "center",
+      justifyContent: "center"
     },
     container: {
-      justifyContent: "center"
+      width: 260,
+      backgroundColor: 'rgba(213, 14, 14, 0.4)',
+      borderWidth: 2,
+      borderColor: 'darkred',
+      borderRadius: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: 20
+    },
+    image: {
+      marginTop: 20,
+      width: 230,
+      height: 354
+    },
+    font: {
+      padding: 10,
+      fontWeight: 'bold',
+      marginBottom: 10
     }
-  })
+  });
+  
 
 
 
